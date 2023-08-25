@@ -29,3 +29,12 @@ resource "azurerm_servicebus_topic" "main" {
   requires_duplicate_detection = var.topic.duplicate_detection
   support_ordering             = var.topic.support_ordering
 }
+
+resource "azurerm_servicebus_subscription" "main" {
+  name     = var.md_metadata.name_prefix
+  topic_id = azurerm_servicebus_topic.main.id
+
+  max_delivery_count        = var.subscription.max_delivery_count
+  enable_batched_operations = var.subscription.batched_operations
+  requires_session          = var.subscription.session
+}

@@ -108,13 +108,14 @@ params:
   examples:
     - __name: Development
       service:
-        sku: Basic
+        sku: Standard
     - __name: Production
       service:
-        sku: Standard
+        sku: Premium
   required:
     - service
     - topic
+    - subscription
     - monitoring
   properties:
     service:
@@ -136,15 +137,11 @@ params:
           $md.immutable: true
           default: Standard
           enum:
-            - Basic
             - Standard
             - Premium
       dependencies:
         sku:
           oneOf:
-            - properties:
-                sku:
-                  const: Basic
             - properties:
                 sku:
                   const: Standard
@@ -203,6 +200,33 @@ params:
           description: Enable ordering support for the Service Bus Topic.
           type: boolean
           default: false
+    subscription:
+      title: Subscription Configuration
+      description: Configure the Service Bus Subscription
+      type: object
+      required:
+        - max_delivery_count
+        - session
+        - batched_operations
+      properties:
+        max_delivery_count:
+          title: Maximum delivery count
+          description: The number if maximum deliveries, ranging 1-2000.
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 2000
+        session:
+          title: Enable session
+          description: Service bus sessions allow ordered handling of unbounded sequences of related messages. **Cannot be changed after the resource is created.**
+          type: boolean
+          $md.immutable: true
+          default: false
+        batched_operations:
+          title: Enable batched operations
+          description: Enable support for batched operations for the Service Bus Subscription.
+          type: boolean
+          default: false
     monitoring:
       type: object
       title: Monitoring
@@ -250,23 +274,8 @@ params:
             service:
               properties:
                 sku:
-                  const: Basic
-            queue:
-              properties:
-                partitioning:
-                  type: boolean
-                  title: Enable partitioning
-                  description: Enable topic to be partitioned across multiple message brokers. **Cannot be changed after the resource is created.**
-                  default: false
-                  $md.immutable: true
-              required:
-                - partitioning
-        - properties:
-            service:
-              properties:
-                sku:
                   const: Standard
-            queue:
+            topic:
               properties:
                 partitioning:
                   type: boolean
@@ -290,17 +299,17 @@ connections:
       $ref: massdriver/azure-service-principal
 
 artifacts:
-  properties: {}
-  # required:
-  #   - azure_service_bus_topic
-  # properties:
-  #   azure_service_bus_topic:
-  #     $ref: massdriver/azure-service-bus-topic
+  required:
+    - azure_service_bus_topic
+  properties:
+    azure_service_bus_topic:
+      $ref: massdriver/azure-service-bus-topic
 
 ui:
   ui:order:
     - service
-    - queue
+    - topic
+    - subscription
     - monitoring
     - "*"
   service:
@@ -313,12 +322,18 @@ ui:
     region:
       ui:field: supportedCloudLocationsDropdown
       cloudService: azure
-  queue:
+  topic:
     ui:order:
-      - partitioning
       - batched_operations
-      - session
+      - express
       - duplicate_detection
+      - support_ordering
+      - "*"
+  subscription:
+    ui:order:
+      - max_delivery_count
+      - session
+      - batched_operations
       - "*"
   monitoring:
     ui:order:
