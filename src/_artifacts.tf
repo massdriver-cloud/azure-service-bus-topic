@@ -6,8 +6,8 @@ resource "massdriver_artifact" "azure_service_bus_topic" {
     {
       data = {
         infrastructure = {
-          ari          = azurerm_servicebus_namespace.main.id
-          endpoint     = azurerm_servicebus_namespace.main.endpoint
+          ari      = azurerm_servicebus_namespace.main.id
+          endpoint = azurerm_servicebus_namespace.main.endpoint
         }
         security = {
           iam = {

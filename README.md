@@ -61,7 +61,11 @@ Form input parameters for configuring a bundle for deployment.
       - Disabled
 - **`service`** *(object)*: Configure the Service Bus Namespace.
   - **`region`** *(string)*: Select the Azure region you'd like to provision your Azure Service Bus in. **Cannot be changed after the resource is created.**.
-  - **`sku`** *(string)*: Select your desired SKU tier for the Service Bus Namespace. **Cannot be changed after the resource is created.**. Must be one of: `['Basic', 'Standard', 'Premium']`. Default: `Standard`.
+  - **`sku`** *(string)*: Select your desired SKU tier for the Service Bus Namespace. **Cannot be changed after the resource is created.**. Must be one of: `['Standard', 'Premium']`. Default: `Standard`.
+- **`subscription`** *(object)*: Configure the Service Bus Subscription.
+  - **`batched_operations`** *(boolean)*: Enable support for batched operations for the Service Bus Subscription. Default: `False`.
+  - **`max_delivery_count`** *(integer)*: The number if maximum deliveries, ranging 1-2000. Minimum: `1`. Maximum: `2000`. Default: `10`.
+  - **`session`** *(boolean)*: Service bus sessions allow ordered handling of unbounded sequences of related messages. **Cannot be changed after the resource is created.**. Default: `False`.
 - **`topic`** *(object)*: Configure the Service Bus Topic.
   - **`batched_operations`** *(boolean)*: Enable server-side batched operations for the Service Bus Topic. Default: `True`.
   - **`duplicate_detection`** *(boolean)*: Enable duplicate detection for the Service Bus Topic. **Cannot be changed after the resource is created.**. Default: `False`.
@@ -73,7 +77,7 @@ Form input parameters for configuring a bundle for deployment.
   {
       "__name": "Development",
       "service": {
-          "sku": "Basic"
+          "sku": "Standard"
       }
   }
   ```
@@ -82,7 +86,7 @@ Form input parameters for configuring a bundle for deployment.
   {
       "__name": "Production",
       "service": {
-          "sku": "Standard"
+          "sku": "Premium"
       }
   }
   ```
@@ -140,6 +144,41 @@ Resources created by this bundle that can be connected to other bundles.
 <!-- ARTIFACTS:START -->
 ## Properties
 
+- **`azure_service_bus_topic`** *(object)*: . Cannot contain additional properties.
+  - **`data`** *(object)*
+    - **`infrastructure`** *(object)*
+      - **`ari`** *(string)*: Azure Resource ID.
+
+        Examples:
+        ```json
+        "/subscriptions/12345678-1234-1234-abcd-1234567890ab/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/network-name"
+        ```
+
+      - **`endpoint`** *(string)*: Azure Service Bus endpoint and port. Cannot contain additional properties.
+
+        Examples:
+        ```json
+        "https://local-dev-queues-0001.servicebus.windows.net:443/"
+        ```
+
+        ```json
+        "sb://local-dev-queues-0001.servicebus.windows.net"
+        ```
+
+    - **`security`** *(object)*: Azure Security Configuration. Cannot contain additional properties.
+      - **`iam`** *(object)*: IAM Roles And Scopes. Cannot contain additional properties.
+        - **`^[a-z]+[a-z_]*[a-z]$`** *(object)*
+          - **`role`**: Azure Role.
+
+            Examples:
+            ```json
+            "Storage Blob Data Reader"
+            ```
+
+          - **`scope`** *(string)*: Azure IAM Scope.
+  - **`specs`** *(object)*
+    - **`azure`** *(object)*: .
+      - **`region`** *(string)*: Select the Azure region you'd like to provision your resources in.
 <!-- ARTIFACTS:END -->
 
 </details>
