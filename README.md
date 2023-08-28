@@ -35,11 +35,11 @@ Security and compliance scanning of our bundles is performed using [Bridgecrew](
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | [![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=INFRASTRUCTURE+SECURITY) | Infrastructure Security Compliance |
 
-| [![PCI-DSS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/pci>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=PCI-DSS+V3.2) | Payment Card Industry Data Security Standards Compliance |
-| [![NIST-800-53](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/nist>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=NIST-800-53) | National Institute of Standards and Technology Compliance |
-| [![ISO27001](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/iso>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=ISO27001) | Information Security Management System, ISO/IEC 27001 Compliance |
-| [![SOC2](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/soc2>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=SOC2)| Service Organization Control 2 Compliance |
-| [![HIPAA](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/hipaa>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=HIPAA) | Health Insurance Portability and Accountability Compliance |
+| [![PCI-DSS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/pci)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=PCI-DSS+V3.2) | Payment Card Industry Data Security Standards Compliance |
+| [![NIST-800-53](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/nist)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=NIST-800-53) | National Institute of Standards and Technology Compliance |
+| [![ISO27001](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/iso)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=ISO27001) | Information Security Management System, ISO/IEC 27001 Compliance |
+| [![SOC2](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=SOC2)| Service Organization Control 2 Compliance |
+| [![HIPAA](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/azure-service-bus-topic/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=HIPAA) | Health Insurance Portability and Accountability Compliance |
 
 <!-- COMPLIANCE:END -->
 
@@ -189,7 +189,7 @@ Resources created by this bundle that can be connected to other bundles.
 
 ### Bug Reports & Feature Requests
 
-Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/azure-service-bus-topic/issues>) to report any bugs or request additional features.
+Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/azure-service-bus-topic/issues) to report any bugs or request additional features.
 
 ### Developing
 
@@ -228,18 +228,18 @@ Please connect with us!
 [github]: https://github.com/massdriver-cloud
 [linkedin]: https://www.linkedin.com/company/massdriver/
 
-[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[contributors_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/graphs/contributors>
-[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[forks_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/network/members>
-[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[stars_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/stargazers>
-[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[issues_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/issues>
-[release_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/releases/latest>
-[release_shield]: https://img.shields.io/github/release/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[license_shield]: https://img.shields.io/github/license/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge>
-[license_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/blob/main/LICENSE>
+[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[contributors_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/graphs/contributors
+[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[forks_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/network/members
+[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[stars_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/stargazers
+[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[issues_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/issues
+[release_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/releases/latest
+[release_shield]: https://img.shields.io/github/release/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[license_shield]: https://img.shields.io/github/license/massdriver-cloud/azure-service-bus-topic.svg?style=for-the-badge
+[license_url]: https://github.com/massdriver-cloud/azure-service-bus-topic/blob/main/LICENSE
 
 [email_url]: mailto:support@massdriver.cloud
 [email_shield]: https://img.shields.io/badge/email-Massdriver-black.svg?style=for-the-badge&logo=mail.ru&color=000000
