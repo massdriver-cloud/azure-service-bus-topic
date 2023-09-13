@@ -1,8 +1,8 @@
 schema: draft-07
 name: "azure-service-bus-topic"
-description: "Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing load-balancing work across competing works, safely routing and transferring data and control across service and application boundaries, and coordinating transactional work that requires a high degree of reliability."
+description: "Azure Service Bus Topic is a publish-subscribe system that allows multiple subscribers to receive copies of the same message, making it ideal for broadcasting messages to multiple consumers interested in the same data."
 source_url: github.com/massdriver-cloud/azure-service-bus-topic
-access: private
+access: public
 type: infrastructure
 
 MonitorAlarmMetric: &monitor_alarm_metric
