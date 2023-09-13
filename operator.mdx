@@ -1,5 +1,71 @@
-# Operator Guide
+# Operator Guide: Azure Service Bus Topic
 
-This is the guide for your bundle. It will appear under the `guide` button in Massdriver.
+## Overview
+Azure Service Bus Topic is a messaging service that provides a reliable way to publish and subscribe to messages between different components of your applications. Topics allow multiple subscribers to receive copies of the same message, making it ideal for broadcasting messages to multiple consumers interested in the same data.
 
-Use it to describe to users how the bundle works, use cases for the bundle, and examples.
+### Use Cases
+- **Publish-Subscribe Pattern:** Use topics to implement a publish-subscribe pattern, where multiple subscribers can independently receive and process messages.
+- **Decoupling Components:** Topics enable loose coupling between different components of your application, enhancing reliability and scalability.
+- **Event-Driven Architectures:** Implement event-driven architectures where events are published to topics for consumption by interested parties.
+- **Dead-Letter Handling:** Capture and analyze messages that cannot be processed successfully.
+- **Delayed Processing:** Send messages to topics for later processing using deferred messages.
+- **Workflow Processing:** Implement multi-step workflows using sessions.
+
+### Client libraries
+Here is a list of fully supported Service Bus client libraries that are available via the Azure SDK:
+- [.NET](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Java](https://learn.microsoft.com/en-us/java/api/overview/azure/servicebus?preserve-view=true)
+- [Java JMS 2.0](https://learn.microsoft.com/en-us/azure/service-bus-messaging/how-to-use-java-message-service-20)
+- [JavaScript/TypeScript](https://learn.microsoft.com/en-us/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Python](https://learn.microsoft.com/en-us/python/api/overview/azure/servicebus?preserve-view=true)
+
+## Guided Configurations
+
+### Development
+The development preset configuration sets the Service Bus SKU to Standard.
+
+### Production
+The production preset configuration sets the Service Bus SKU to Premium.
+
+## Design Considerations
+We designed the bundle for Azure Service Bus Topic to support various use cases, allowing you to configure the following:
+- Capacity
+- Zone redundancy
+- Batch operations
+- Duplicate detection
+- Ordering support
+- Maximum delivery count
+- Sessions
+- Partitioning
+
+## Security
+
+### Access Control
+Configure access policies to control who can publish, subscribe, or manage topics using Azure RBAC. In your application, it'll look something like this:
+```yaml
+app:
+  envs: {}
+  policies:
+    - .connections.service_bus_topic.data.security.iam.publish
+    - .connections.service_bus_topic.data.security.iam.subscribe
+  secrets: {}
+```
+The `.connections.service_bus_topic.data.security.iam.publish` role assigns the `Azure Service Bus Data Sender` role to the application's managed identity. The `.connections.service_bus_topic.data.security.iam.subscribe` role assigns the `Azure Service Bus Data Receiver` role to the application's managed identity. You can use one or both of these roles depending on your application's needs.
+
+### Encrypted Data in Transit
+The bundle uses SSL/TLS 1.2 encryption for data transmitted between your application and the topic.
+
+### Encrypted Data at Rest
+Data is encrypted at rest, including messages stored in the topic.
+
+## Observability and Monitoring
+### Metrics and Monitoring
+Utilize metrics to monitor topic performance, throughput, and message counts.
+
+The two metrics that are currently configured to be collected are:
+- `ServerErrors`: The number of server errors that occurred for the Azure Service Bus Namespace
+- `ServerSendLatency`: The latency of sending messages to the Azure Service Bus Namespace
+
+## Trade-offs and Limitations
+### Network Isolation
+Public network access is enabled (by default). If you want to restrict access to the topic to only your virtual network, you can do so by forking the bundle, setting the public_network_access_enabled parameter to false, and adding a network_rule_set, then publishing the bundle to your Massdriver org. Network isolation is not enforced by default to avoid limiting some functionality.
