@@ -1,7 +1,6 @@
 resource "massdriver_artifact" "azure_service_bus_topic" {
-  field                = "azure_service_bus_topic"
-  provider_resource_id = azurerm_servicebus_namespace.main.id
-  name                 = "Azure Service Bus endpoint"
+  field    = "azure_service_bus_topic"
+  name     = "Azure Service Bus endpoint"
   artifact = jsonencode(
     {
       data = {
